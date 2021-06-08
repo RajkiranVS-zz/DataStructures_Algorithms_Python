@@ -1,2 +1,12 @@
 # DataStructures_Algorithms_Python
-BITS M.Tech Data Science and Engineering Sem-1 Data Structures and Algorithms
+
+### Implementation of Abstract Data Types using Python
+
+#### Stacks
+#### Queue
+#### Linked List(Single)
+#### Linked List(Circular)
+#### Linked List(Double)
+#### Traversal Algorithm
+#### Binary Search Trees
+#### Graphs

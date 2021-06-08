@@ -78,14 +78,3 @@ class Stack:
             All elements in Stack
         """
         return self.items
-
-stack = Stack()
-stack.push("A")
-stack.push("B")
-print('Top:',stack.peak())
-print(stack.get_stack())
-stack.pop()
-print('Top:',stack.peak())
-print(stack.get_stack())
-stack.pop()
-print('Top:',stack.peak())

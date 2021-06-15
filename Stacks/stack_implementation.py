@@ -3,7 +3,7 @@ Implementation of Stack in Python using Lists
 """
 class Stack:
     """
-    A class used to represent an Animal
+    A class used to represent Stack
 
     ...
 

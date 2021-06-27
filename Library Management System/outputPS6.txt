@@ -1,103 +1,15 @@
-All copies of book id 100015 have been checked out
 Top Books:
-Top Books1: 100001,1
+Top Books1: 100001,0
  Top Books2: 100003,13
  Top Books3: 100005,2
 
 List of books not issued:
-100002
-100004
-100006
-100007
-100008
-100009
-100010
-100011
-100012
-100013
-100014
-100015
-100016
-100017
-100018
-100019
-100020
-Book id 100000 does not exist.
-Book id 100017 is available for checkout
-Book id 100009 is available for checkout
-Book id 100001 is available for checkout
-List of books not issued:
-100002
-100004
-100006
-100008
-100009
-100010
-100011
-100012
-100013
-100015
-100016
-100017
-100018
-100019
-100020
 Top Books:
-Top Books1: 100001,2
- Top Books2: 100005,1
- Top Books3: 100003,13
-
-There are a total of 20 book titles in the library.
-100001,2
-100002,5
-100003,13
-100004,12
-100005,1
-100006,5
-100007,0
-100008,5
-100009,2
-100010,4
-100011,9
-100012,2
-100013,3
-100014,0
-100015,0
-100016,15
-100017,10
-100018,4
-100019,8
-100020,2
-All available copies of the below books have been checked out:
-100015
-100014
-100007
-After deleting the Nodes with 0 Available count there are 17 books:
-100001,2
-100002,5
-100003,13
-100004,12
-100005,1
-100006,5
-100008,5
-100009,2
-100010,4
-100011,9
-100012,2
-100013,3
-100016,15
-100017,10
-100018,4
-100019,8
-100020,2
-All copies of book id 100015 have been checked out
-Top Books:
-Top Books1: 100001,1
+Top Books1: 100001,0
  Top Books2: 100003,13
  Top Books3: 100005,2
 
 List of books not issued:
-100002
 100004
 100006
 100007
@@ -114,163 +26,11 @@ List of books not issued:
 100018
 100019
 100020
-Book id 100000 does not exist.
-Book id 100017 is available for checkout
-Book id 100009 is available for checkout
-Book id 100001 is available for checkout
-List of books not issued:
-100002
-100004
-100006
-100008
-100009
-100010
-100011
-100012
-100013
-100015
-100016
-100017
-100018
-100019
-100020
-Top Books:
-Top Books1: 100001,2
- Top Books2: 100005,1
- Top Books3: 100003,13
-
-There are a total of 20 book titles in the library.
-100001,2
+Book id 100006 does not exist.
+There are a total of 4 book titles in the library.
+100001,0
 100002,5
+100005,2
 100003,13
-100004,12
-100005,1
-100006,5
-100007,0
-100008,5
-100009,2
-100010,4
-100011,9
-100012,2
-100013,3
-100014,0
-100015,0
-100016,15
-100017,10
-100018,4
-100019,8
-100020,2
 All available copies of the below books have been checked out:
-100015
-100014
-100007
-After deleting the Nodes with 0 Available count there are 17 books:
-100001,2
-100002,5
-100003,13
-100004,12
-100005,1
-100006,5
-100008,5
-100009,2
-100010,4
-100011,9
-100012,2
-100013,3
-100016,15
-100017,10
-100018,4
-100019,8
-100020,2
-All copies of book id 100015 have been checked out
-Top Books:
-Top Books1: 100001,1
- Top Books2: 100003,13
- Top Books3: 100005,2
-
-List of books not issued:
-100002
-100004
-100006
-100007
-100008
-100009
-100010
-100011
-100012
-100013
-100014
-100015
-100016
-100017
-100018
-100019
-100020
-Book id 100000 does not exist.
-Book id 100017 is available for checkout
-Book id 100009 is available for checkout
-Book id 100001 is available for checkout
-List of books not issued:
-100002
-100004
-100006
-100008
-100009
-100010
-100011
-100012
-100013
-100015
-100016
-100017
-100018
-100019
-100020
-Top Books:
-Top Books1: 100001,2
- Top Books2: 100005,1
- Top Books3: 100003,13
-
-There are a total of 20 book titles in the library.
-100001,2
-100002,5
-100003,13
-100004,12
-100005,1
-100006,5
-100007,0
-100008,5
-100009,2
-100010,4
-100011,9
-100012,2
-100013,3
-100014,0
-100015,0
-100016,15
-100017,10
-100018,4
-100019,8
-100020,2
-All available copies of the below books have been checked out:
-100015
-100014
-100007
-After deleting the Nodes with 0 Available count there are 17 books:
-100001,2
-100002,5
-100003,13
-100004,12
-100005,1
-100006,5
-100008,5
-100009,2
-100010,4
-100011,9
-100012,2
-100013,3
-100016,15
-100017,10
-100018,4
-100019,8
-100020,2
+100001

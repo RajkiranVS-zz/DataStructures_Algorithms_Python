@@ -142,15 +142,18 @@ class bookNode:
         :param inOut: (checkin / checkout): instructions of the process to be performed
         :return: None
         """
-        if inOut == 'checkout':
-            node = self.getNode(self, bkID)
-            check_availability = self.findBook(node, bkID)
-            if 'is available for checkout' in check_availability:
-                node.chkOutCntr = node.chkOutCntr + 1
-                node.avCntr = node.avCntr - 1
-        else:
-            node = self.getNode(self, bkID)
-            node.avCntr = node.avCntr + 1
+        try:
+            if inOut == 'checkout':
+                node = self.getNode(self, bkID)
+                check_availability = self.findBook(node, bkID)
+                if 'is available for checkout' in check_availability:
+                    node.chkOutCntr = node.chkOutCntr + 1
+                    node.avCntr = node.avCntr - 1
+            else:
+                node = self.getNode(self, bkID)
+                node.avCntr = node.avCntr + 1
+        except:
+            return 'Book {} not available.'.format(bkID)
 
     def getTopBooks(self, bkNode):
         """
@@ -182,6 +185,8 @@ class bookNode:
             ls.sort()
             self.notIssued(bkNode.right)
             result = [i[1][0] for i in ls if i[0] == 0]
+            for ids in result:
+                self.deleteNode(bkNode, ids)
             return result
 
     def stockout(self, bkNode):
@@ -207,76 +212,64 @@ class bookNode:
         if bkNode:
             return bool(self.stockout(bkNode) != [])
 
+    def deleteDeepest(self, bkNode, d_node):
+        q = []
+        q.append(bkNode)
+        while (len(q)):
+            temp = q.pop(0)
+            if temp is d_node:
+                temp = None
+                return
+            if temp.right:
+                if temp.right is d_node:
+                    temp.right = None
+                    return
+                else:
+                    q.append(temp.right)
+            if temp.left:
+                if temp.left is d_node:
+                    temp.left = None
+                    return
+                else:
+                    q.append(temp.left)
+
     def deleteNode(self, bkNode, bkID):
-        # Base Case
-        if bkNode is None:
-            return bkNode
-        # Recursive calls for ancestors of
-        # node to be deleted
-        if bkID < bkNode.bookID:
-            bkNode.left = self.deleteNode(bkNode.left, bkID)
-            return bkNode
-
-        elif bkID > bkNode.bookID:
-            bkNode.right = self.deleteNode(bkNode.right, bkID)
-            return bkNode
-
-        # We reach here when root is the node
-        # to be deleted.
-
-        # If root node is a leaf node
-        if bkNode.left is None and bkNode.right is None:
+        if bkNode == None:
             return None
-
-        # If one of the children is empty
-        if bkNode.left is None:
-            temp = bkNode.right
-            bkNode = None
-            return temp
-
-        elif bkNode.right is None:
-            temp = bkNode.left
-            bkNode = None
-            return temp
-            # If both children exist
-
-            succParent = bkNode
-
-            # Find Successor
-
-            succ = bkNode.right
-
-            while succ.left != None:
-                succParent = succ
-                succ = succ.left
-
-            # Delete successor.Since successor
-            # is always left child of its parent
-            # we can safely make successor's right
-            # right child as left of its parent.
-            # If there is no succ, then assign
-            # succ->right to succParent->right
-            if succParent != bkNode:
-                succParent.left = succ.right
+        if bkNode.left == None and bkNode.right == None:
+            if bkNode.bookID == bkID:
+                return None
             else:
-                succParent.right = succ.right
-
-            # Copy Successor Data to root
-
-            bkNode.bookID = succ.bookID
-            bkNode.avCntr = succ.avCntr
-            bkNode.chkOutCntr = succ.chkOutCntr
+                return bkNode
+        key_node = None
+        q = []
+        q.append(bkNode)
+        while (len(q)):
+            temp = q.pop(0)
+            if temp.bookID == bkID:
+                key_node = temp
+            if temp.left:
+                q.append(temp.left)
+            if temp.right:
+                q.append(temp.right)
+        if key_node:
+            x = temp.bookID
+            y = temp.avCntr
+            z = temp.chkOutCntr
+            self.deleteDeepest(bkNode, temp)
+            key_node.bookID = x
+            key_node.avCntr = y
+            key_node.chkOutCntr = z
+        return bkNode
 
 
 def main():
     """
     :return: implement all the modules of bookNode class as per the instructions from promptsPS6.txt file
     """
-    input_file = input("Please provide path of input file:")
-    output_file = input("Please provide path of output file:")
-    proc_file = input("Please provide path of process file:")
-    output = open(eval(output_file), 'a')
-    with open(eval(input_file), 'r') as inpf:
+    
+    output = open('./outputPS6.txt', 'a')
+    with open('./inputsPS6.txt', 'r') as inpf:
         firstLine = inpf.readline()
         if not firstLine:
             print('Input file is empty ! Please add some books and their available counts in inputsPS6.txt',
@@ -297,7 +290,7 @@ def main():
                         return
             else:
                 return
-    with open(eval(proc_file), 'r') as f:
+    with open('./promptsPS6.txt', 'r') as f:
         lines = f.readlines()
         for line in lines:
             if ':' in line:
@@ -327,14 +320,14 @@ def main():
         print('All available copies of the below books have been checked out:', file=output)
         for i in root.stockout(root):
             print(i, file=output)
-            root.deleteNode(root, i)
+            # root.deleteNode(root, i)
             ls.clear()
-        root.printBooks(root)
-        print('After deleting the Nodes with 0 Available count there are {} books:'.format(len(ls))
-              , file=output)
-        for node in ls:
-            print(node, file=output)
-        ls.clear()
+        # root.printBooks(root)
+        # print('After deleting the Nodes with 0 Available count there are {} books:'.format(len(ls))
+        #       , file=output)
+        # for node in ls:
+        #     print(node, file=output)
+        # ls.clear()
 
 
 if __name__ == "__main__":
